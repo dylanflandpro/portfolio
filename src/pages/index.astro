@@ -1,49 +1,51 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Experience from '../components/Experience.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import '../styles/global.css';
+import { SITE_DESCRIPTION, SITE_TITLE, experiences } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <div class="flex flex-1 flex-col">
+      <section
+        class="px-8 py-8 max-w-3xl mx-auto text-[1.1rem] leading-relaxed"
+      >
+        <h1 class="text-3xl mb-4">Hi there, little visitor 👋</h1>
+        <p>
+          Welcome to my portfolio! If you’ve landed here, you're probably
+          curious about my skills — or maybe just about me 😏
+        </p>
+        <p class="mt-4">
+          Below, you'll find everything from my experience and tech stack to
+          hands-on lab challenges I’ve tackled. These challenges are how I
+          learn, grow, and figure things out when stuff gets tricky.
+        </p>
+        <p class="mt-4">
+          Hopefully, all this helps you decide whether I’m the right person for
+          your next <strong class="font-semibold">SUPER ULTRA IMPORTANT</strong>
+          project 😛
+        </p>
+      </section>
+
+      <section
+        class="flex flex-1 flex-col px-8 py-8 bg-gray-50 mx-auto rounded-lg mt-8"
+      >
+        <h2 class="text-2xl mb-4">Experience</h2>
+        <p class="mb-4">Here’s a quick look at my experience so far:</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {experiences.map((exp) => <Experience experiences={[exp]} />)}
+        </div>
+      </section>
+    </div>
+    <Footer />
+  </body>
 </html>

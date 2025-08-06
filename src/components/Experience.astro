@@ -1,0 +1,42 @@
+---
+import dayjs from '../dayjs';
+import type { Experience } from '../types';
+import { Image } from 'astro:assets';
+
+interface Props {
+  experiences: Experience[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<div class="flex flex-wrap gap-4 justify-center my-4">
+  {
+    experiences
+      .sort((a, b) => {
+        return b.priority - a.priority;
+      })
+      .map((exp) => (
+        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-6 max-w-xs w-full cursor-progress">
+          {exp.image && (
+            <div class="w-7x1 h-40">
+              <Image
+                class="rounded-lg mb-4"
+                src={exp.image}
+                alt={`Image for ${exp.company}`}
+              />
+            </div>
+          )}
+          <div class="font-bold text-lg text-gray-800">{exp.company}</div>
+          <div class="text-gray-600 my-1">{exp.role}</div>
+          <div class="text-sm text-gray-400 mb-2">
+            {dayjs(exp.startDate).format('MMM YYYY')} -{' '}
+            {exp.endDate == 'Now'
+              ? 'Now'
+              : dayjs(exp.endDate).format('MMM YYYY')}
+          </div>
+          <div class="text-gray-800 text-base">{exp.description}</div>
+        </div>
+      ))
+  }
+</div>
