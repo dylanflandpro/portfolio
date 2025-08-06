@@ -1,12 +1,12 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-import dayjs from 'dayjs';
+import dayjs from './dayjs';
 import type { Experience } from './types';
 import BPCE from './assets/exp_logos/bpce.jpeg';
 import BS from './assets/exp_logos/bearstudio_logo.png';
 import Bartopia from './assets/exp_logos/bartopia_logo.png';
-export const SITE_TITLE = "Dy'lab journey";
+export const SITE_TITLE = "Dy'lab";
 export const SITE_DESCRIPTION = 'Welcome to my portfolio / lab journey !';
 
 export const experiences: Experience[] = [
@@ -70,7 +70,7 @@ export const experiences: Experience[] = [
   },
   {
     company: 'ABDH',
-    role: 'Développeur informatique',
+    role: 'IT Developer',
     startDate: dayjs('04/2023', 'MM/YYYY').toDate(),
     endDate: dayjs('05/2023', 'MM/YYYY').toDate(),
     description:

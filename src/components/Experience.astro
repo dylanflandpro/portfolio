@@ -1,5 +1,5 @@
 ---
-import dayjs from 'dayjs';
+import dayjs from '../dayjs';
 import type { Experience } from '../types';
 import { Image } from 'astro:assets';
 
@@ -10,7 +10,7 @@ interface Props {
 const { experiences } = Astro.props;
 ---
 
-<div class="flex flex-wrap gap-6 justify-center my-8">
+<div class="flex flex-wrap gap-4 justify-center my-4">
   {
     experiences
       .sort((a, b) => {
