@@ -19,13 +19,13 @@ const { experiences } = Astro.props;
       .map((exp) => (
         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-6 max-w-xs w-full cursor-progress">
           {exp.image && (
-            <Image
-              class="rounded-lg mb-4"
-              src={exp.image}
-              alt={`Image for ${exp.company}`}
-              width={1920}
-              height={1080}
-            />
+            <div class="w-7x1 h-40">
+              <Image
+                class="rounded-lg mb-4"
+                src={exp.image}
+                alt={`Image for ${exp.company}`}
+              />
+            </div>
           )}
           <div class="font-bold text-lg text-gray-800">{exp.company}</div>
           <div class="text-gray-600 my-1">{exp.role}</div>
